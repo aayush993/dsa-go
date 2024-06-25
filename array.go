@@ -8,12 +8,11 @@ func MaxSum(arr []int, k int) {
 	i := 0
 
 	for j := 0; j < len(arr); j++ {
-		//fmt.Printf("Sum is  %v\n", sum)
-		if j-i+1 <= k {
-			sum = sum + arr[j]
-			mSum = sum
-		} else if j-i+1 > k {
-			sum := sum - arr[i] + arr[j]
+		sum = sum + arr[j]
+		mSum = sum
+
+		if j-i+1 == k {
+			sum = sum - arr[i]
 			if sum > mSum {
 				mSum = sum
 			}
