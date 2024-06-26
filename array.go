@@ -51,3 +51,45 @@ func FirstNegativeInt(arr []int, k int) {
 	}
 
 }
+
+func countAnagramInString(str string, ptrString string) {
+
+	arr := []rune(str)
+	pattern := []rune(ptrString)
+
+	k := len(pattern)
+	i := 0
+	ans := 0
+
+	ptrMap := make(map[rune]int)
+
+	for _, val := range pattern {
+		ptrMap[val]++
+	}
+
+	count := len(ptrMap)
+
+	for j := 0; j < len(arr); j++ {
+		ptrMap[arr[j]]--
+		if ptrMap[arr[j]] == 0 {
+			count--
+		}
+
+		winSize := j - i + 1
+		if winSize == k {
+			if count == 0 {
+				ans++
+			}
+
+			ptrMap[arr[i]]++
+			if ptrMap[arr[i]] > 0 {
+				count++
+			}
+
+			i++
+		}
+	}
+
+	fmt.Printf("Number of anagrams %v", ans)
+
+}
