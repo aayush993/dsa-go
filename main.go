@@ -38,10 +38,10 @@ func main() {
 
 	maxSubArrOfSum(arr1, k)
 
-	// // will not work for negative numbers
-	// arr1 = []int{-5, 8, 14, 2, 4, 12}
-	// k = -5
+	// will not work for negative numbers
+	arr1 = []int{4, 1, -1, 1, 2, -3, 1, 5}
+	k = 5
 
-	// maxSubArrOfSum(arr1, k)
+	maxSubArrOfSumNegative(arr1, k)
 
 }

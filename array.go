@@ -127,20 +127,38 @@ func maxOfAllSubArray(arr []int, k int) {
 
 func maxSubArrOfSum(arr []int, sum int) {
 
+	i := 0
+
+	tempSum := 0
+	maxSubArrLen := 0
+	for j := 0; j < len(arr) && i < len(arr); j++ {
+		tempSum = tempSum + arr[j]
+
+		if tempSum > sum {
+			for ; tempSum > sum; i++ {
+				tempSum = tempSum - arr[i]
+			}
+		}
+		if tempSum == sum {
+			if j-i+1 > maxSubArrLen {
+				maxSubArrLen = j - i + 1
+			}
+		}
+	}
+
+	fmt.Printf("max sub arr %d \n", maxSubArrLen)
+}
+
+func maxSubArrOfSumNegative(arr []int, sum int) {
+
+	// we cannot pop in this case beacuse we might encounter a negative value later
 	tempSum := 0
 	maxSubArrLen := 0
 	for j := 0; j < len(arr); j++ {
 		tempSum = tempSum + arr[j]
-
-		if tempSum > sum {
-			for tempSum > sum && len(arr) > 0 {
-				tempSum = tempSum - arr[0]
-				arr = arr[1:]
-			}
-		}
 		if tempSum == sum {
-			if j > maxSubArrLen {
-				maxSubArrLen = j
+			if j+1 > maxSubArrLen {
+				maxSubArrLen = j + 1
 			}
 		}
 	}
