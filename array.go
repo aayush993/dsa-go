@@ -90,3 +90,37 @@ func countAnagramInString(str string, ptrString string) {
 	fmt.Printf("Number of anagrams %v", ans)
 
 }
+
+func maxOfAllSubArray(arr []int, k int) {
+
+	var tempArr, maxOfAll []int
+
+	i := 0
+	for j := 0; j < len(arr); j++ {
+		winSiz := j - i + 1
+
+		if len(tempArr) != 0 {
+			for n := len(tempArr) - 1; n >= 0; n-- {
+				if arr[j] < tempArr[n] {
+					break
+				}
+				tempArr = tempArr[0:n]
+			}
+
+		}
+		tempArr = append(tempArr, arr[j])
+
+		if winSiz == k {
+
+			maxOfAll = append(maxOfAll, tempArr[0])
+
+			if arr[i] == tempArr[0] {
+				tempArr = tempArr[1:]
+			}
+			i++
+
+		}
+	}
+
+	fmt.Printf("max of all %v  \n", maxOfAll)
+}
