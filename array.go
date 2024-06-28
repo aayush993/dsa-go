@@ -127,21 +127,20 @@ func maxOfAllSubArray(arr []int, k int) {
 
 func maxSubArrOfSum(arr []int, sum int) {
 
-	i := 0
-
 	tempSum := 0
 	maxSubArrLen := 0
-	for j := 0; j < len(arr) && i < len(arr); j++ {
+	for j := 0; j < len(arr); j++ {
 		tempSum = tempSum + arr[j]
 
 		if tempSum > sum {
-			for ; tempSum > sum; i++ {
-				tempSum = tempSum - arr[i]
+			for tempSum > sum && len(arr) > 0 {
+				tempSum = tempSum - arr[0]
+				arr = arr[1:]
 			}
 		}
 		if tempSum == sum {
-			if j-i+1 > maxSubArrLen {
-				maxSubArrLen = j - i + 1
+			if j > maxSubArrLen {
+				maxSubArrLen = j
 			}
 		}
 	}
