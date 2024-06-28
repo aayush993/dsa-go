@@ -54,38 +54,35 @@ func FirstNegativeInt(arr []int, k int) {
 
 func countAnagramInString(str string, ptrString string) {
 
-	arr := []rune(str)
-	pattern := []rune(ptrString)
-
-	k := len(pattern)
+	k := len(ptrString)
 	i := 0
-	ans := 0
+	ans := []int{}
 
 	ptrMap := make(map[rune]int)
 
-	for _, val := range pattern {
+	for _, val := range ptrString {
 		ptrMap[val]++
 	}
 
 	count := len(ptrMap)
 
-	for j := 0; j < len(arr); j++ {
-		ptrMap[arr[j]]--
-		if ptrMap[arr[j]] == 0 {
+	for j, v := range str {
+		winSize := j - i + 1
+		fmt.Printf("window %v\n", i)
+		ptrMap[v]--
+		if ptrMap[v] == 0 {
 			count--
 		}
 
-		winSize := j - i + 1
 		if winSize == k {
 			if count == 0 {
-				ans++
+				ans = append(ans, i)
 			}
 
-			ptrMap[arr[i]]++
-			if ptrMap[arr[i]] > 0 {
+			ptrMap[v]++
+			if ptrMap[v] > 0 {
 				count++
 			}
-
 			i++
 		}
 	}
