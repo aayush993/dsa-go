@@ -33,9 +33,15 @@ func main() {
 	// 	fmt.Printf("key %v and value %v\n", k, v)
 	// }
 
-	arr1 := []int{1, 3, -1, -3, 5, 3, 6, 7}
-	k := 3
+	arr1 := []int{4, 1, 1, 1, 2, 3, 5}
+	k := 5
 
-	maxOfAllSubArray(arr1, k)
+	maxSubArrOfSum(arr1, k)
+
+	// // will not work for negative numbers
+	// arr1 = []int{-5, 8, 14, 2, 4, 12}
+	// k = -5
+
+	// maxSubArrOfSum(arr1, k)
 
 }

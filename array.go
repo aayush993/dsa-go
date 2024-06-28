@@ -124,3 +124,27 @@ func maxOfAllSubArray(arr []int, k int) {
 
 	fmt.Printf("max of all %v  \n", maxOfAll)
 }
+
+func maxSubArrOfSum(arr []int, sum int) {
+
+	i := 0
+
+	tempSum := 0
+	maxSubArrLen := 0
+	for j := 0; j < len(arr) && i < len(arr); j++ {
+		tempSum = tempSum + arr[j]
+
+		if tempSum > sum {
+			for ; tempSum > sum; i++ {
+				tempSum = tempSum - arr[i]
+			}
+		}
+		if tempSum == sum {
+			if j-i+1 > maxSubArrLen {
+				maxSubArrLen = j - i + 1
+			}
+		}
+	}
+
+	fmt.Printf("max sub arr %d \n", maxSubArrLen)
+}
