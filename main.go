@@ -33,15 +33,22 @@ func main() {
 	// 	fmt.Printf("key %v and value %v\n", k, v)
 	// }
 
-	arr1 := []int{4, 1, 1, 1, 2, 3, 5}
-	k := 5
+	// arr2 := strings.Split(arr, "")
+	// for j := 0; j < len(arr2); j++ {
+	// 	fmt.Println(arr2[j])
+	// }
 
-	maxSubArrOfSum(arr1, k)
+	// arr1 := []int{4, 1, 1, 1, 2, 3, 5}
+	// k := 5
 
-	// will not work for negative numbers
-	arr1 = []int{4, 1, -1, 1, 2, -3, 1, 5}
-	k = 5
+	// maxSubArrOfSum(arr1, k)
 
-	maxSubArrOfSumNegative(arr1, k)
+	// // will not work for negative numbers
+	// arr1 = []int{4, 1, -1, 1, 2, -3, 1, 5}
+	// k = 5
+
+	// maxSubArrOfSumNegative(arr1, k)
+
+	longestSubstrWithUniqueKChar("aabacbebebe", 3)
 
 }

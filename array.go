@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func MaxSum(arr []int, k int) {
 
@@ -164,4 +167,36 @@ func maxSubArrOfSumNegative(arr []int, sum int) {
 	}
 
 	fmt.Printf("max sub arr %d \n", maxSubArrLen)
+}
+
+func longestSubstrWithUniqueKChar(str string, k int) {
+
+	arr := strings.Split(str, "")
+	charMp := make(map[string]int)
+
+	i := 0
+	maxSubStrLen := 0
+	for j := 0; j < len(arr) && i < len(arr); j++ {
+		charMp[arr[j]]++
+
+		if len(charMp) == k {
+			if j-i+1 > maxSubStrLen {
+				maxSubStrLen = j - i + 1
+			}
+
+		} else if len(charMp) > k {
+			for ; len(charMp) > k; i++ {
+				charMp[arr[i]]--
+				if charMp[arr[i]] == 0 {
+					delete(charMp, arr[i])
+				}
+
+			}
+
+		}
+
+	}
+
+	fmt.Printf("Greatest len of substr: %v\n", maxSubStrLen)
+
 }
