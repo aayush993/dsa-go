@@ -49,6 +49,7 @@ func main() {
 
 	// maxSubArrOfSumNegative(arr1, k)
 
-	longestSubstrWithUniqueKChar("aabacbebebe", 3)
+	//longestSubstrWithUniqueKChar("aabacbebebe", 3)
+	longestSubstrWithUniqueChar("pwwkew")
 
 }

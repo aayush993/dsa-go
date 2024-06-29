@@ -200,3 +200,35 @@ func longestSubstrWithUniqueKChar(str string, k int) {
 	fmt.Printf("Greatest len of substr: %v\n", maxSubStrLen)
 
 }
+
+func longestSubstrWithUniqueChar(str string) {
+
+	arr := strings.Split(str, "")
+	charMp := make(map[string]int)
+
+	i := 0
+	maxSubStrLen := 0
+	for j := 0; j < len(arr) && i < len(arr); j++ {
+		charMp[arr[j]]++
+
+		if len(charMp) == j-i+1 {
+			if j-i+1 > maxSubStrLen {
+				maxSubStrLen = j - i + 1
+			}
+
+		} else if len(charMp) < j-i+1 {
+			for ; len(charMp) < j-i+1; i++ {
+				charMp[arr[i]]--
+				if charMp[arr[i]] == 0 {
+					delete(charMp, arr[i])
+				}
+
+			}
+
+		}
+
+	}
+
+	fmt.Printf("Greatest len of substr: %v\n", maxSubStrLen)
+
+}
