@@ -232,3 +232,49 @@ func longestSubstrWithUniqueChar(str string) {
 	fmt.Printf("Greatest len of substr: %v\n", maxSubStrLen)
 
 }
+
+func minWinSubStringWithGivenChar(str string, t string) {
+
+	// check with examiner if string has spacing or any other symbol if not
+	// we can skip these two lines and directly iterate over the string
+	arr := strings.Split(str, "")
+	tArr := strings.Split(t, "")
+
+	mapChar := make(map[string]int)
+	for _, val := range tArr {
+		mapChar[val]++
+	}
+	count := len(mapChar)
+
+	ans := len(mapChar)
+
+	i := 0
+	for j := 0; j < len(arr); j++ {
+		if _, ok := mapChar[arr[j]]; ok {
+			mapChar[arr[j]]--
+			if mapChar[arr[j]] == 0 {
+				count--
+			}
+		}
+
+		if count == 0 {
+			ans = j - i + 1
+
+			// optimize
+			for ; count == 0 && i < len(arr); i++ {
+				ans = j - i + 1
+				if _, ok := mapChar[arr[i]]; ok {
+					mapChar[arr[i]]++
+					if mapChar[arr[i]] > 0 {
+						count++
+					}
+				}
+			}
+
+		}
+
+	}
+
+	fmt.Printf("Min window substring with characters from t %v \n", ans)
+
+}

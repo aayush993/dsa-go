@@ -49,7 +49,9 @@ func main() {
 
 	// maxSubArrOfSumNegative(arr1, k)
 
-	//longestSubstrWithUniqueKChar("aabacbebebe", 3)
-	longestSubstrWithUniqueChar("pwwkew")
+	//longestSubstrWithUniqueKChar("aabacbebebe", 3) // pick toys can be reduced to this
+	//longestSubstrWithUniqueChar("pwwkew")
+
+	minWinSubStringWithGivenChar("TOTMTAPTAT", "TTA")
 
 }
