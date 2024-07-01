@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// Given an array
 	// find max sum of subarray of size k
@@ -52,6 +54,21 @@ func main() {
 	//longestSubstrWithUniqueKChar("aabacbebebe", 3) // pick toys can be reduced to this
 	//longestSubstrWithUniqueChar("pwwkew")
 
-	minWinSubStringWithGivenChar("TOTMTAPTAT", "TTA")
+	//minWinSubStringWithGivenChar("TOTMTAPTAT", "TTA")
+
+	//selectionSort([]int{4, 1, -1, 1, 2, -3, 1, 5})
+	//bubbleSort([]int{4, 1, -1, 1, 2, -3, 1, 5})
+	//insertionSort([]int{4, 1, -1, 1, 2, -3, 1, 5})(
+
+	//arr1 := []int{-3, -1, 1, 1, 1, 2, 4, 5}
+	arr := []int{4, 1, -1, 1, 2, -3, 1, 5}
+	//arr = mergeSort(arr)
+
+	//mergeArr(arr1[5:], arr1[:5], arr2)
+
+	n := len(arr) - 1
+	quickSort(arr, 0, n)
+
+	fmt.Println(arr)
 
 }
